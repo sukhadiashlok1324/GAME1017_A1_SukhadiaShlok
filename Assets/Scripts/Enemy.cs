@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Enemy : MonoBehaviour
 {
-    float health = 20.0f;
+    public float health = 4.0f;
 
     // Start is called before the first frame update
     void Start()
@@ -22,7 +22,7 @@ public class Enemy : MonoBehaviour
     {
         if (collision.CompareTag("Projectile"))
         {
-            health -= 10.0f;
+            health -= 1.0f;
         }
 
         if (health <= 0.0)
