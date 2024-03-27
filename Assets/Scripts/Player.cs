@@ -5,8 +5,9 @@ using UnityEngine;
 public class Player : MonoBehaviour
 {
 
+    public GameObject projectilePrefab;
     float speed = 10.0f;
-    // Start is called before the first frame update
+
     void Start()
     {
         
@@ -38,7 +39,15 @@ public class Player : MonoBehaviour
             direction += Vector3.right;
 
         }
-
         transform.position += direction.normalized * speed * Time.deltaTime;
+
+        Vector3 mouse = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+        if (Input.GetKeyDown(KeyCode.Space))
+        {
+            // AB = B - A
+            Vector3 shootDirection = (mouse - transform.position).normalized;
+            GameObject projectile = Instantiate(projectilePrefab, transform.position + shootDirection, Quaternion.identity);
+            projectile.GetComponent<Rigidbody2D>().velocity = shootDirection * speed;
+        }
     }
 }
