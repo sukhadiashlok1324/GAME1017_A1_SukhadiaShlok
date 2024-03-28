@@ -57,6 +57,11 @@ public class Enemy : MonoBehaviour
         }
 
         if (health <= 0.0)
+        {
             Destroy(gameObject);
+            GameObject newEnemy = Instantiate(gameObject, transform.position, Quaternion.identity);
+        }
+            
+
     }
 }

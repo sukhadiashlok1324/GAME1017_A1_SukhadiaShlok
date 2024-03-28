@@ -57,6 +57,5 @@ public class Player : MonoBehaviour
 
         if (Health <= 0.0f)
             Destroy(gameObject);
-
     }
 }
