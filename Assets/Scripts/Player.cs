@@ -7,10 +7,10 @@ public class Player : MonoBehaviour
 
     public GameObject projectilePrefab;
     float speed = 10.0f;
-
+    public float Health;
     void Start()
     {
-        
+
     }
 
     // Update is called once per frame
@@ -46,5 +46,17 @@ public class Player : MonoBehaviour
             GameObject projectile = Instantiate(projectilePrefab, transform.position + shootDirection, Quaternion.identity);
             projectile.GetComponent<Rigidbody2D>().velocity = shootDirection * speed;
         }
+    }
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.CompareTag("Projectile Enemy"))
+        {
+            Health -= 1.0f;
+        }
+
+        if (Health <= 0.0f)
+            Destroy(gameObject);
+
     }
 }
