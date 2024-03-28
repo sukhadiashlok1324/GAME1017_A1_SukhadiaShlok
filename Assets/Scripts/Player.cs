@@ -38,14 +38,15 @@ public class Player : MonoBehaviour
         }
         transform.position += direction.normalized * speed * Time.deltaTime;
 
-        Vector3 mouse = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-        if (Input.GetKeyDown(KeyCode.Space))
+        //Vector3 mouse = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+        /*if (Input.GetKeyDown(KeyCode.Space))
         {
             // AB = B - A
             Vector3 shootDirection = (mouse - transform.position).normalized;
             GameObject projectile = Instantiate(projectilePrefab, transform.position + shootDirection, Quaternion.identity);
             projectile.GetComponent<Rigidbody2D>().velocity = shootDirection * speed;
-        }
+
+        }*/
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
@@ -57,5 +58,6 @@ public class Player : MonoBehaviour
 
         if (Health <= 0.0f)
             Destroy(gameObject);
+
     }
 }
