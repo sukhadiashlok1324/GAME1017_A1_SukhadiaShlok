@@ -6,8 +6,10 @@ public class Player : MonoBehaviour
 {
 
     public GameObject projectilePrefab;
-    float speed = 10.0f;
+    public float speed = 10.0f;
     public float Health;
+    public float rotationSpeed = 100f;
+
     void Start()
     {
 
@@ -36,6 +38,17 @@ public class Player : MonoBehaviour
         {
             direction += Vector3.right;
         }
+
+        if (Input.GetKey(KeyCode.LeftArrow))
+        {
+            transform.Rotate(Vector3.forward * rotationSpeed * Time.deltaTime);
+        }
+
+        if (Input.GetKey(KeyCode.RightArrow))
+        {
+            transform.Rotate(Vector3.back * rotationSpeed * Time.deltaTime);
+        }
+
         transform.position += direction.normalized * speed * Time.deltaTime;
 
         //Vector3 mouse = Camera.main.ScreenToWorldPoint(Input.mousePosition);
