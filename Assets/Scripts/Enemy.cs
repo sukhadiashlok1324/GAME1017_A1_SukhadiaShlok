@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 
 public class Enemy : MonoBehaviour
 {
@@ -14,7 +15,7 @@ public class Enemy : MonoBehaviour
     private float nextShootTime;
     private Rigidbody2D rb;
     private bool movingRight = true;
-
+    //private int Scorebounty = 10;
 
     // Start is called before the first frame update
     void Start()
@@ -49,6 +50,8 @@ public class Enemy : MonoBehaviour
         bulletPrefab.GetComponent<Rigidbody2D>().velocity = Vector2.down * bulletspeed;
     }
 
+    private UnityEvent OnDieEvent;
+
     void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.CompareTag("Projectile"))
@@ -58,10 +61,14 @@ public class Enemy : MonoBehaviour
 
         if (health <= 0.0)
         {
-            Destroy(gameObject);
-            GameObject newEnemy = Instantiate(gameObject, transform.position, Quaternion.identity);
+            Die();
         }
-            
+    }
 
+    void Die()
+    {
+        //OnDieEvent.Invoke(Scorebounty);
+        Destroy(gameObject);
+        GameObject newEnemy = Instantiate(gameObject, transform.position, Quaternion.identity);
     }
 }
