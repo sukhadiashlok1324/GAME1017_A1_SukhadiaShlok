@@ -65,6 +65,8 @@ public class Enemy : MonoBehaviour
         }
     }
 
+
+
     void Die()
     {
         //OnDieEvent.Invoke(Scorebounty);

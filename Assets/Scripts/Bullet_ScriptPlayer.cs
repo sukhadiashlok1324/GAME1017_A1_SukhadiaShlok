@@ -41,7 +41,12 @@ public class Bullet_ScriptPlayer : MonoBehaviour
         if (collision.CompareTag("Enemy"))
         {
             Destroy(gameObject);
-        }       
-       
+        }
+
+        if (collision.CompareTag("Obstacle"))
+        {
+            Destroy(gameObject);
+        }
+
     }
 }
