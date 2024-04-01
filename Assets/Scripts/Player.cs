@@ -9,7 +9,8 @@ public class Player : MonoBehaviour
     public float speed = 10.0f;
     public float Health;
     public float rotationSpeed = 100f;
-    public GameObject Explosion;
+    public Transform Explosionposition;
+    public GameObject ExplosionPrefab;
 
     // Update is called once per frame
     void Update()
@@ -67,7 +68,7 @@ public class Player : MonoBehaviour
 
         if (Health <= 0.0f)
         {
-            Instantiate(Explosion);
+            Instantiate(ExplosionPrefab, Explosionposition.position, Quaternion.identity);
             Destroy(gameObject);
         }
 

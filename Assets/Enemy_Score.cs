@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Enemy_Score : MonoBehaviour
 {
-    public int scoreValue = 10; // Score value of this enemy
+    public int scoreValue = 1; // Score value of this enemy
 
     private ScoreManager scoreManager;
 
@@ -30,8 +30,6 @@ public class Projectile : MonoBehaviour
         {
             Destroy(other.gameObject); // Destroy the enemy
             Destroy(gameObject); // Destroy the projectile
-
-            // You may also play sound effects, particle effects, etc.
         }
     }
 }

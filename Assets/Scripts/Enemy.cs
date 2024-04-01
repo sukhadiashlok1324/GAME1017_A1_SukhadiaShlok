@@ -72,5 +72,6 @@ public class Enemy : MonoBehaviour
         //OnDieEvent.Invoke(Scorebounty);
         Destroy(gameObject);
         GameObject newEnemy = Instantiate(gameObject, transform.position, Quaternion.identity);
+
     }
 }
