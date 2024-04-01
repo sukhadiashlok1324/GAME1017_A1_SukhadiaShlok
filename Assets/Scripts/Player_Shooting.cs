@@ -5,7 +5,7 @@ using UnityEngine;
 public class Player_Shooting : MonoBehaviour
 {
     public float firerate = 3f;
-    public float bulletshootingtime = 2;
+    public float bulletshootingtime = 0;
     public GameObject bulletprefab;
 
     private bool shootingEnabled = false;

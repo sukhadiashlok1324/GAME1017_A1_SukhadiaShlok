@@ -4,12 +4,12 @@ using UnityEngine;
 
 public class Bullet_ScriptPlayer : MonoBehaviour
 {
-    //public GameObject BulletPrefab;
+    
     public float speed_ = 10f;
-    public float maxDistance_ = 20f;
-    public int Attackpoints;
+    public float maxDistance = 20f;
+    //public int Attackpoints;
 
-    // Update is called once per frame
+    
     void Update()
     {
         MoveBullet_();
@@ -24,7 +24,7 @@ public class Bullet_ScriptPlayer : MonoBehaviour
     void CheckDistance_()
     {
         float distance = speed_ * Time.fixedDeltaTime;
-        if (distance >= maxDistance_)
+        if (distance >= maxDistance)
         {
             Destroy(gameObject);
         }
@@ -32,12 +32,6 @@ public class Bullet_ScriptPlayer : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        /*Damagable target = collision.GetComponent<Damagable>();
-        if (target != null)
-        {
-            return;
-        }
-        target.TakeDamage(Attackpoints);*/
         if (collision.CompareTag("Enemy"))
         {
             Destroy(gameObject);

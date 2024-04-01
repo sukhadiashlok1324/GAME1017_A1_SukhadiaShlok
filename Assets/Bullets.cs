@@ -10,8 +10,6 @@ public class Bullets : MonoBehaviour
         {
             Destroy(other.gameObject); // Destroy the enemy
             Destroy(gameObject); // Destroy the projectile
-
-            // You may also play sound effects, particle effects, etc.
         }
     }
 }

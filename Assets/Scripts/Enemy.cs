@@ -11,6 +11,8 @@ public class Enemy : MonoBehaviour
     public Transform bulletSpawnPoint;
     public GameObject bulletPrefab;
     public float health = 4.0f;
+    public Transform Explosionposition;
+    public GameObject ExplosionPrefab;
     
     private float nextShootTime;
     private Rigidbody2D rb;
@@ -69,9 +71,9 @@ public class Enemy : MonoBehaviour
 
     void Die()
     {
-        //OnDieEvent.Invoke(Scorebounty);
+        
+        Instantiate(ExplosionPrefab, Explosionposition.position, Quaternion.identity);
         Destroy(gameObject);
-        GameObject newEnemy = Instantiate(gameObject, transform.position, Quaternion.identity);
 
     }
 }
