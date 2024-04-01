@@ -61,16 +61,28 @@ public class Player : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.CompareTag("Projectile Enemy"))
+        if (collision.CompareTag("Projectile Enemy"))   //If the enemy bullets hits player, health decreases 
         {
             Health -= 1.0f;
         }
 
-        if (Health <= 0.0f)
+        if (Health <= 0.0f)       
         {
-            Instantiate(ExplosionPrefab, Explosionposition.position, Quaternion.identity);
-            Destroy(gameObject);
+            Die();
         }
 
+        if (collision.CompareTag("Obstacle"))    // If the player hits obstacle, it dies
+        {
+            Die();
+        }
+    }
+
+
+
+
+    private void Die()     
+    {
+        Instantiate(ExplosionPrefab, Explosionposition.position, Quaternion.identity);     //When the player is destroyed, an explosion animation is instantiated
+        Destroy(gameObject);
     }
 }
