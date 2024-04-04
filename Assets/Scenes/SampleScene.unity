@@ -257,9 +257,9 @@ GameObject:
   m_Component:
   - component: {fileID: 100471183}
   - component: {fileID: 100471182}
+  - component: {fileID: 100471184}
   - component: {fileID: 100471181}
   - component: {fileID: 100471180}
-  - component: {fileID: 100471184}
   m_Layer: 0
   m_Name: Obstacle
   m_TagString: Obstacle
@@ -408,7 +408,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ce25c72d4a5cea5409df9ea43c8a655f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 2
+  speed: 1
   despawnDistance: 10
   obstaclePrefab: {fileID: 1479276961}
 --- !u!1 &185243662
@@ -809,8 +809,8 @@ GameObject:
   - component: {fileID: 747580503}
   - component: {fileID: 747580502}
   - component: {fileID: 747580501}
-  - component: {fileID: 747580504}
   - component: {fileID: 747580505}
+  - component: {fileID: 747580504}
   m_Layer: 0
   m_Name: fighter
   m_TagString: Player
@@ -900,7 +900,8 @@ Transform:
   m_LocalPosition: {x: -0.082149394, y: -2.7746482, z: 9.933672}
   m_LocalScale: {x: 4, y: 4, z: 1}
   m_ConstrainProportionsScale: 0
-  m_Children: []
+  m_Children:
+  - {fileID: 1970550903}
   m_Father: {fileID: 185243663}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!60 &747580504
@@ -976,7 +977,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 747580500}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 37c30ecdf3079f348ad315def1865aac, type: 3}
   m_Name: 
@@ -1194,8 +1195,8 @@ Transform:
   m_GameObject: {fileID: 1108828415}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 3.3512, y: 1.0173, z: 1}
+  m_LocalPosition: {x: -0.012, y: -3.3318, z: 0}
+  m_LocalScale: {x: 3.3475137, y: 1.6843436, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
@@ -1328,6 +1329,10 @@ PrefabInstance:
       propertyPath: m_Size.y
       value: 0.45007616
       objectReference: {fileID: 0}
+    - target: {fileID: 4331401986217859208, guid: 2840cc2a308ee3f4ba76c985f997f8ef, type: 3}
+      propertyPath: m_SortingOrder
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 5784094947699452306, guid: 2840cc2a308ee3f4ba76c985f997f8ef, type: 3}
       propertyPath: m_LocalPosition.x
       value: 7.29
@@ -1432,7 +1437,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ce25c72d4a5cea5409df9ea43c8a655f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 2
+  speed: 1
   despawnDistance: 10
   obstaclePrefab: {fileID: 1479276961}
 --- !u!50 &1479276963
@@ -1598,7 +1603,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -414, y: -359}
+  m_AnchoredPosition: {x: -387, y: -338}
   m_SizeDelta: {x: 200, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1570722804
@@ -1792,6 +1797,150 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   scoreValue: 1
+--- !u!1 &1970550902
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1970550903}
+  - component: {fileID: 1970550905}
+  - component: {fileID: 1970550904}
+  m_Layer: 0
+  m_Name: Shoot
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1970550903
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1970550902}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 747580503}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!82 &1970550904
+AudioSource:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1970550902}
+  m_Enabled: 1
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: 0}
+  m_audioClip: {fileID: 8300000, guid: 2ee7a5c7e2ae108448528ea54c7980b6, type: 3}
+  m_PlayOnAwake: 0
+  m_Volume: 1
+  m_Pitch: 1
+  Loop: 0
+  Mute: 0
+  Spatialize: 0
+  SpatializePostEffects: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+--- !u!114 &1970550905
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1970550902}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 37c30ecdf3079f348ad315def1865aac, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  firerate: 10
+  bulletshootingtime: 0
+  bulletprefab: {fileID: 1679107955}
 --- !u!1001 &1039414149729470545
 PrefabInstance:
   m_ObjectHideFlags: 0

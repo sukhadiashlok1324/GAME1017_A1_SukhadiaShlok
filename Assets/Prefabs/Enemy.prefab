@@ -161,3 +161,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dfb3a13ab69425b429e06202c4bb4fc2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  movementspeed: 2
+  shootingInterval: 1
+  bulletspeed: 3
+  bulletSpawnPoint: {fileID: 0}
+  bulletPrefab: {fileID: 0}
+  health: 4
+  Explosionposition: {fileID: 0}
+  ExplosionPrefab: {fileID: 0}
