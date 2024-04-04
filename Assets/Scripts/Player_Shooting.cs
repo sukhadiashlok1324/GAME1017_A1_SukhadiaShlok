@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 
 public class Player_Shooting : MonoBehaviour
 {
@@ -10,7 +11,9 @@ public class Player_Shooting : MonoBehaviour
 
     private bool shootingEnabled = false;
 
-    // Update is called once per frame
+    [SerializeField]
+    private AudioSource Shoot;
+
     void Update()
     {
         bulletshootingtime -= Time.deltaTime;
@@ -29,6 +32,11 @@ public class Player_Shooting : MonoBehaviour
 
     private void shoot()
     {
+        if(Shoot != null)
+        {
+            Shoot.Play();
+        }
+
         float timeuntilshoot = 1f / firerate;
         bulletshootingtime = timeuntilshoot;
         GameObject bullet = Instantiate(bulletprefab, transform.position, transform.rotation);
