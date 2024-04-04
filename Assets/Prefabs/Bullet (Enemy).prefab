@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 2069833862938073635}
   - component: {fileID: 19319956925483920}
   - component: {fileID: 5854947501098063154}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Bullet (Enemy)
   m_TagString: Projectile Enemy
   m_Icon: {fileID: 0}
@@ -163,8 +163,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 10
-  maxDistance: 1
-  Attackpoints: 0
+  maxDistance: 20
+  direction: {x: 0, y: -1}
 --- !u!82 &5854947501098063154
 AudioSource:
   m_ObjectHideFlags: 0

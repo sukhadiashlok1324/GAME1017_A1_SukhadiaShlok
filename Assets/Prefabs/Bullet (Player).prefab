@@ -12,10 +12,9 @@ GameObject:
   - component: {fileID: 4705164819618897531}
   - component: {fileID: 9243180819040118}
   - component: {fileID: 2084636076789905367}
-  - component: {fileID: 942409034965745957}
-  - component: {fileID: 6821026813543680946}
   - component: {fileID: 5617782648606402239}
-  m_Layer: 0
+  - component: {fileID: 6326861592163465689}
+  m_Layer: 6
   m_Name: Bullet (Player)
   m_TagString: Projectile
   m_Icon: {fileID: 0}
@@ -151,32 +150,6 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
---- !u!114 &942409034965745957
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4306637349489759957}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c89557d3f95f4ae438f4d3ac0167f2cc, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  speed_: 10
-  maxDistance: 5
---- !u!114 &6821026813543680946
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4306637349489759957}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 896ea089b20c85b478c978b114ebdc6a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!82 &5617782648606402239
 AudioSource:
   m_ObjectHideFlags: 0
@@ -273,3 +246,18 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &6326861592163465689
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4306637349489759957}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 959436433938b48498ea0a8d35473f32, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  speed: 10
+  maxDistance: 20
+  direction: {x: 0, y: 1}

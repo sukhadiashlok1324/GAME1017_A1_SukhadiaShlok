@@ -4,26 +4,32 @@ using UnityEngine;
 
 public class Bullet_Script : MonoBehaviour
 {
-    //public GameObject BulletPrefab;
-    public float speed = 10f;
-    public float maxDistance = 20f;
-    public int Attackpoints;
+    public float speed = 10f; // meters/seconds
+    public float maxDistance = 20f; // meters
+    float distance = 0; // meters
+    public Vector2 direction;
 
-    // Update is called once per frame
+    // Update is called once per frame, maybe 60 times per second? Maybe 100? Maybe 400?
     void Update()
     {
         MoveBullet();
-        CheckDistance();
+        CheckDistance(); // adds 1 to distance
     }
 
     void MoveBullet()
     {
-        transform.Translate(Vector2.down * speed * Time.deltaTime);
+        //speed -> meters/seconds
+        //Time.deltaTime -> seconds\
+        //Translate(Vector2(metersX/seconds * seconds, metersY/seconds * seconds) 
+
+        float distanceToTravel = speed * Time.deltaTime;
+        Vector2 displacement = direction * distanceToTravel;
+        distance = distance + distanceToTravel;
+        transform.Translate(displacement);
     }
 
-    void CheckDistance()
+    void CheckDistance() 
     {
-        float distance = speed * Time.fixedDeltaTime;
         if (distance >= maxDistance)
         {
             Destroy(gameObject);
@@ -32,21 +38,6 @@ public class Bullet_Script : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        /*Damagable target = collision.GetComponent<Damagable>();
-        if (target != null)
-        {
-            return;
-        }
-        target.TakeDamage(Attackpoints);*/
-        if (collision.CompareTag("Player"))
-        {
-            Destroy(gameObject);
-        }
-
-        if (collision.CompareTag("Obstacle"))
-        {
-            Destroy(gameObject);
-        }
-
+        Destroy(gameObject);
     }
 }
