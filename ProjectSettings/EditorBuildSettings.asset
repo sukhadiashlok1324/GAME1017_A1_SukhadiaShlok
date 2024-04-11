@@ -9,6 +9,6 @@ EditorBuildSettings:
     path: Assets/Scenes/SampleScene.unity
     guid: 2cda990e2423bbf4892e6590ba056729
   - enabled: 0
-    path: Assets/Scenes/Game Play.unity
+    path: Assets/Scenes/After Die.unity
     guid: f20db99765359be4087e7152a9d30dc5
   m_configObjects: {}

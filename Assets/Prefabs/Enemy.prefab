@@ -10,10 +10,10 @@ GameObject:
   m_Component:
   - component: {fileID: 6207551528041680108}
   - component: {fileID: 2388263957263419430}
-  - component: {fileID: 1867154504344937500}
-  - component: {fileID: 821919574662704396}
   - component: {fileID: 5456059704345783498}
   - component: {fileID: 9043539826351159528}
+  - component: {fileID: 1867154504344937500}
+  - component: {fileID: 821919574662704396}
   m_Layer: 9
   m_Name: Enemy
   m_TagString: Enemy
@@ -88,6 +88,39 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &5456059704345783498
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 976334915250406604}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dfb3a13ab69425b429e06202c4bb4fc2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  movementspeed: 5
+  shootingInterval: 2
+  bulletspeed: 3
+  bulletSpawnPoint: {fileID: 6207551528041680108}
+  bulletPrefab: {fileID: 5302303141832507248, guid: 98e5d1768ca2703419d039098090533f, type: 3}
+  health: 5
+  Explosionposition: {fileID: 6207551528041680108}
+  ExplosionPrefab: {fileID: 3394782322464053365, guid: 87e486292da884b4e9fb7cf591cbc6c5, type: 3}
+--- !u!114 &9043539826351159528
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 976334915250406604}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 490fc35ac11896143bac80a46b363947, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  scoreValue: 1
 --- !u!50 &1867154504344937500
 Rigidbody2D:
   serializedVersion: 4
@@ -150,36 +183,3 @@ CircleCollider2D:
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
   m_Radius: 0.5
---- !u!114 &5456059704345783498
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 976334915250406604}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: dfb3a13ab69425b429e06202c4bb4fc2, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  movementspeed: 5
-  shootingInterval: 2
-  bulletspeed: 3
-  bulletSpawnPoint: {fileID: 6207551528041680108}
-  bulletPrefab: {fileID: 5302303141832507248, guid: 98e5d1768ca2703419d039098090533f, type: 3}
-  health: 5
-  Explosionposition: {fileID: 6207551528041680108}
-  ExplosionPrefab: {fileID: 3394782322464053365, guid: 87e486292da884b4e9fb7cf591cbc6c5, type: 3}
---- !u!114 &9043539826351159528
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 976334915250406604}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 490fc35ac11896143bac80a46b363947, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  scoreValue: 1

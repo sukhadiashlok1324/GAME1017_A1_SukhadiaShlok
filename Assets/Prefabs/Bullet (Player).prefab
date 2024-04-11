@@ -9,8 +9,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5194753857895056417}
-  - component: {fileID: 4705164819618897531}
   - component: {fileID: 6326861592163465689}
+  - component: {fileID: 4705164819618897531}
   - component: {fileID: 5617782648606402239}
   - component: {fileID: 2084636076789905367}
   - component: {fileID: 9243180819040118}
@@ -36,6 +36,21 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &6326861592163465689
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4306637349489759957}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 959436433938b48498ea0a8d35473f32, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  speed: 10
+  maxDistance: 20
+  direction: {x: 0, y: 1}
 --- !u!212 &4705164819618897531
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -88,21 +103,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &6326861592163465689
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4306637349489759957}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 959436433938b48498ea0a8d35473f32, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  speed: 10
-  maxDistance: 20
-  direction: {x: 0, y: 1}
 --- !u!82 &5617782648606402239
 AudioSource:
   m_ObjectHideFlags: 0

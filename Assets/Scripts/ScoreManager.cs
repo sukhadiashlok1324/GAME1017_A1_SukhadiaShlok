@@ -3,10 +3,13 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
+using Unity.VisualScripting;
+using UnityEngine.UIElements;
 
 public class ScoreManager : MonoBehaviour
 {
     public TextMeshProUGUI scoreText;
+    //public Button RestartButton;
     private int score = 0;
 
     private void Start()
@@ -19,7 +22,14 @@ public class ScoreManager : MonoBehaviour
     {
         score += amount;
         UpdateScoreText();
+
     }
+
+    /*public VisualElement RestartButton()
+    {
+        if (RestartButton.ButtonClickedEvent += OnButtonClick)
+
+    }*/
 
     private void UpdateScoreText()
     {

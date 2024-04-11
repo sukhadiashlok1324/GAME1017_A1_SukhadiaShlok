@@ -8,6 +8,8 @@ public class Bullet_Script : MonoBehaviour
     public float maxDistance = 20f; // meters
     float distance = 0; // meters
     public Vector2 direction;
+    //public Transform rotation;
+
     //public GameObject HitSound;
 
     // Update is called once per frame, maybe 60 times per second? Maybe 100? Maybe 400?
@@ -37,12 +39,19 @@ public class Bullet_Script : MonoBehaviour
         }
     }
 
-    /*private void OnTriggerEnter2D(Collider2D collision)
+    private void OnTriggerEnter2D(Collider2D collision)
     {
-        if(HitSound != null)
+        if (collision.CompareTag("Enemy"))
         {
-            Instantiate(HitSound, transform.position, transform.rotation);
+            Destroy(gameObject);
+        } 
+
+        if (collision.CompareTag("Obstacle"))
+        {
+            Destroy(gameObject);
         }
-        Destroy(gameObject);
-    }*/
+         
+    }
+
+
 }

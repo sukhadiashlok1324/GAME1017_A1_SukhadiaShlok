@@ -10,7 +10,7 @@ public class ScrollBAckground : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        float posy= transform.position.y + scrollvelocityy * Time.deltaTime;
+        float posy= transform.position.y - scrollvelocityy * Time.deltaTime;
         posy = posy % repeatscale;
 
         transform.position = new Vector3 (0, posy, 0);
