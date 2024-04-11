@@ -555,7 +555,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 'Restart
+  m_text: 'Menu
 
 '
   m_isRightToLeft: 0
@@ -1039,6 +1039,7 @@ GameObject:
   - component: {fileID: 1806616482}
   - component: {fileID: 1806616483}
   - component: {fileID: 1806616484}
+  - component: {fileID: 1806616485}
   m_Layer: 0
   m_Name: GameManager
   m_TagString: Untagged
@@ -1170,6 +1171,19 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &1806616485
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1806616481}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4e04963a27ae125478ed1dbd8ef483ae, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  SceneName: After Die
 --- !u!1 &1831110216
 GameObject:
   m_ObjectHideFlags: 0
@@ -1386,7 +1400,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1840290554}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1806616485}
+        m_TargetAssemblyTypeName: Start_Script, Assembly-CSharp
+        m_MethodName: ChangeScene1
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1840290554
 MonoBehaviour:
   m_ObjectHideFlags: 0
