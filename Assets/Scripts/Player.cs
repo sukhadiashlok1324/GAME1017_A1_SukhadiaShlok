@@ -7,7 +7,7 @@ public class Player : MonoBehaviour
 
     public GameObject projectilePrefab;
     public float speed = 10.0f;
-    public float Health;
+    public float Health = 7.0f;
     public float rotationSpeed = 100f;
     public Transform Explosionposition;
     public GameObject ExplosionPrefab;
@@ -47,16 +47,6 @@ public class Player : MonoBehaviour
         }
 
         transform.position += direction.normalized * speed * Time.deltaTime;
-
-        //Vector3 mouse = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-        /*if (Input.GetKeyDown(KeyCode.Space))
-        {
-            // AB = B - A
-            Vector3 shootDirection = (mouse - transform.position).normalized;
-            GameObject projectile = Instantiate(projectilePrefab, transform.position + shootDirection, Quaternion.identity);
-            projectile.GetComponent<Rigidbody2D>().velocity = shootDirection * speed;
-
-        }*/
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
@@ -66,23 +56,30 @@ public class Player : MonoBehaviour
             Health -= 1.0f;
         }
 
+        if (collision.CompareTag("Obstacle"))    // If the player hits obstacle, Health Decreases by 2 
+        {
+            Health -= 2.0f;
+        }
+
+        if (collision.CompareTag("Enemy"))    // If the player hits enemy, Health decreases by 2
+        {
+            Health -= 2.0f;
+        }
+
         if (Health <= 0.0f)       
         {
             Die();
         }
 
-        if (collision.CompareTag("Obstacle"))    // If the player hits obstacle, it dies
-        {
-            Die();
-        }
     }
 
 
 
 
-    private void Die()     
+    public void Die()     
     {
         Instantiate(ExplosionPrefab, Explosionposition.position, Quaternion.identity);     //When the player is destroyed, an explosion animation is instantiated
         Destroy(gameObject);
+        
     }
 }

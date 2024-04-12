@@ -7,7 +7,7 @@ using UnityEngine.UIElements;
 using Button = UnityEngine.UI.Button;
 
 
-public class Start_Script : MonoBehaviour
+public class ChangeScene : MonoBehaviour
 {
     public string SceneName;
 
