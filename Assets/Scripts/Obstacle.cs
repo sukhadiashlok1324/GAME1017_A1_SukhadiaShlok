@@ -47,11 +47,11 @@ public class Obstacle : MonoBehaviour
             // Do nothing if collided with player projectile
             // Player projectiles should not destroy obstacles
         }
-        else if (other.CompareTag("Enemy") || other.CompareTag("Obstacle"))
+        /*else if (other.CompareTag("Enemy") || other.CompareTag("Obstacle"))
         {
             // If collided with enemy or another obstacle, reverse direction
             moveDirection *= -1;
-        }
+        }*/
     }
 
     // Respawn obstacle

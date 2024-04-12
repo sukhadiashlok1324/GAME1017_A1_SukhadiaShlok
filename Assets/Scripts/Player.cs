@@ -1,20 +1,34 @@
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 
 public class Player : MonoBehaviour
 {
 
-    public GameObject projectilePrefab;
+    //public GameObject projectilePrefab;
+    public TextMeshProUGUI Hitpoints;
     public float speed = 10.0f;
     public float Health = 7.0f;
     public float rotationSpeed = 100f;
     public Transform Explosionposition;
     public GameObject ExplosionPrefab;
 
+    public void Start()
+    {
+
+    }
+
+    public void ChangeHitPoints()
+    {
+        Hitpoints.text = "HitPoints: " + Health; 
+    }
+   
     // Update is called once per frame
     void Update()
     {
+        ChangeHitPoints();
+
         Vector3 direction = Vector3.zero;
         if (Input.GetKey(KeyCode.W))
         {
@@ -68,6 +82,7 @@ public class Player : MonoBehaviour
 
         if (Health <= 0.0f)       
         {
+            Health = 0.0f;
             Die();
         }
 
@@ -78,8 +93,8 @@ public class Player : MonoBehaviour
 
     public void Die()     
     {
+        ChangeHitPoints();
         Instantiate(ExplosionPrefab, Explosionposition.position, Quaternion.identity);     //When the player is destroyed, an explosion animation is instantiated
-        Destroy(gameObject);
-        
+        Destroy(gameObject);       
     }
 }

@@ -9,14 +9,19 @@ using UnityEngine.UIElements;
 public class ScoreManager : MonoBehaviour
 {
     public TextMeshProUGUI scoreText;
-    //public Button RestartButton;
+    
+
     private int score = 0;
+    
 
     private void Start()
     {
         // Initialize score text
         UpdateScoreText();
+        
     }
+
+    
 
     public void IncrementScore(int amount)
     {
@@ -25,11 +30,7 @@ public class ScoreManager : MonoBehaviour
 
     }
 
-    /*public VisualElement RestartButton()
-    {
-        if (RestartButton.ButtonClickedEvent += OnButtonClick)
-
-    }*/
+    
 
     private void UpdateScoreText()
     {
