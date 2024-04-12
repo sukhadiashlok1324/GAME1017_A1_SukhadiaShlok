@@ -8,6 +8,7 @@ public class Player : MonoBehaviour
     public GameObject projectilePrefab;
     public float speed = 10.0f;
     public float Health = 7.0f;
+    public Transform nothing;
     public float rotationSpeed = 100f;
     public Transform Explosionposition;
     public GameObject ExplosionPrefab;
