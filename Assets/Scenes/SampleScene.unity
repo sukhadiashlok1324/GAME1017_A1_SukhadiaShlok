@@ -837,53 +837,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &741103550 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 1221415803836532997, guid: c5777d19b72fe1d448a0886be9b63949, type: 3}
-  m_PrefabInstance: {fileID: 1487677207130931572}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &741103552
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 741103550}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 85b5c4c0711f3914f90ce9bc6e9ffcdc, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Explosionposition: {fileID: 741270513}
-  ExplosionPrefab: {fileID: 0}
-  Hitpoints: {fileID: 0}
-  Health: 7
---- !u!1 &741270512 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 4399516110265089938, guid: c5777d19b72fe1d448a0886be9b63949, type: 3}
-  m_PrefabInstance: {fileID: 1487677207130931572}
-  m_PrefabAsset: {fileID: 0}
---- !u!4 &741270513 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 8996546770528506301, guid: c5777d19b72fe1d448a0886be9b63949, type: 3}
-  m_PrefabInstance: {fileID: 1487677207130931572}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &741270514
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 741270512}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 85b5c4c0711f3914f90ce9bc6e9ffcdc, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Explosionposition: {fileID: 741270513}
-  ExplosionPrefab: {fileID: 3394782322464053365, guid: 87e486292da884b4e9fb7cf591cbc6c5, type: 3}
-  Hitpoints: {fileID: 2905094}
-  Health: 7
 --- !u!1 &943484319
 GameObject:
   m_ObjectHideFlags: 0
@@ -1730,6 +1683,10 @@ PrefabInstance:
       propertyPath: m_Layer
       value: 7
       objectReference: {fileID: 0}
+    - target: {fileID: 4414821427666757713, guid: c5777d19b72fe1d448a0886be9b63949, type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 4887110125719615226, guid: c5777d19b72fe1d448a0886be9b63949, type: 3}
       propertyPath: Health
       value: 7
@@ -1791,12 +1748,6 @@ PrefabInstance:
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents:
-    - targetCorrespondingSourceObject: {fileID: 1221415803836532997, guid: c5777d19b72fe1d448a0886be9b63949, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 741103552}
-    - targetCorrespondingSourceObject: {fileID: 4399516110265089938, guid: c5777d19b72fe1d448a0886be9b63949, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 741270514}
     - targetCorrespondingSourceObject: {fileID: 2755484816271755489, guid: c5777d19b72fe1d448a0886be9b63949, type: 3}
       insertIndex: -1
       addedObject: {fileID: 516057230}
