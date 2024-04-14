@@ -100,14 +100,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dfb3a13ab69425b429e06202c4bb4fc2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  movementspeed: 5
-  shootingInterval: 2
+  EnemyPrefab: {fileID: 976334915250406604}
+  movementspeed: 2
+  shootingInterval: 0.75
   bulletspeed: 3
   bulletSpawnPoint: {fileID: 6207551528041680108}
   bulletPrefab: {fileID: 5302303141832507248, guid: 98e5d1768ca2703419d039098090533f, type: 3}
   health: 5
   Explosionposition: {fileID: 6207551528041680108}
   ExplosionPrefab: {fileID: 3394782322464053365, guid: 87e486292da884b4e9fb7cf591cbc6c5, type: 3}
+  DestroyDelay: 2
 --- !u!114 &9043539826351159528
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -5,6 +5,7 @@ using UnityEngine.Events;
 
 public class Enemy : MonoBehaviour
 {
+    public GameObject EnemyPrefab;
     public float movementspeed = 2f;
     public float shootingInterval = 1f;
     public float bulletspeed = 3f;
@@ -13,11 +14,12 @@ public class Enemy : MonoBehaviour
     public float health = 4.0f;
     public Transform Explosionposition;
     public GameObject ExplosionPrefab;
-    
+    public float DestroyDelay = 2f;
+
     private float nextShootTime;
     private Rigidbody2D rb;
     private bool movingRight = true;
-    //private int Scorebounty = 10;
+    
 
     // Start is called before the first frame update
     void Start()
@@ -56,6 +58,10 @@ public class Enemy : MonoBehaviour
 
     void OnTriggerEnter2D(Collider2D collision)
     {
+        if (collision.CompareTag("Player"))
+        {
+            Destroy(gameObject);
+        }
         if (collision.CompareTag("Projectile"))
         {
             health -= 1.0f;
@@ -71,9 +77,18 @@ public class Enemy : MonoBehaviour
 
     void Die()
     {
-        
+        AfterDestroy();
         Instantiate(ExplosionPrefab, Explosionposition.position, Quaternion.identity);
         Destroy(gameObject);
 
+    }
+
+    void AfterDestroy()
+    {
+        Invoke("EnemyNew", DestroyDelay);
+    }
+    public void EnemyNew()
+    {
+        Instantiate(EnemyPrefab, Explosionposition);
     }
 }

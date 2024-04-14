@@ -8,8 +8,7 @@ public class Bullet_Script : MonoBehaviour
     public float maxDistance = 20f; // meters
     float distance = 0; // meters
     public Vector2 direction;
-    //public new string Tag;
-    //public Transform rotation;
+    
 
     //public GameObject HitSound;
 

@@ -8,7 +8,7 @@ public class Obstacle : MonoBehaviour
     public float despawnDistance = 10f; // Distance at which the obstacle despawns
     public GameObject obstaclePrefab; // Prefab of the obstacle to respawn
     private Vector3 moveDirection; // Direction in which the obstacle moves
-
+   
     void Start()
     {
         // Determine move direction based on initial position
@@ -37,21 +37,6 @@ public class Obstacle : MonoBehaviour
             // Destroy the current obstacle
             Destroy(gameObject);
         }
-    }
-
-    // Collision detection
-    void OnTriggerEnter2D(Collider2D other)
-    {
-        if (other.CompareTag("Projectile"))
-        {
-            // Do nothing if collided with player projectile
-            // Player projectiles should not destroy obstacles
-        }
-        /*else if (other.CompareTag("Enemy") || other.CompareTag("Obstacle"))
-        {
-            // If collided with enemy or another obstacle, reverse direction
-            moveDirection *= -1;
-        }*/
     }
 
     // Respawn obstacle
