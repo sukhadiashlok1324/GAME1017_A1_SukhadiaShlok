@@ -10,7 +10,7 @@ public class Bullet_Script : MonoBehaviour
     public Vector2 direction;
     
 
-    //public GameObject HitSound;
+    
 
     // Update is called once per frame, maybe 60 times per second? Maybe 100? Maybe 400?
     void Update()
