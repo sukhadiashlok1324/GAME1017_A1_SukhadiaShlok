@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class Player : MonoBehaviour
 {
@@ -85,10 +86,26 @@ public class Player : MonoBehaviour
 
 
 
-    public void Die()     
+    public void Die()
     {
         ChangeHitPoints();
-        Instantiate(ExplosionPrefab, Explosionposition.position, Quaternion.identity);     //When the player is destroyed, an explosion animation is instantiated
-        Destroy(gameObject);       
+
+        // Disable components to make the object inactive and invisible
+        gameObject.GetComponent<SpriteRenderer>().enabled = false;
+        gameObject.GetComponent<PolygonCollider2D>().enabled = false;
+        // Add more lines to disable other components as needed
+
+        Instantiate(ExplosionPrefab, Explosionposition.position, Quaternion.identity);
+
+        // Delay the scene change
+        Invoke("LoadSceneAfterDelay", 1f);
     }
+
+    private void LoadSceneAfterDelay()
+    {
+        SceneManager.LoadScene("After Die");
+        Destroy(gameObject);
+    }
+
+
 }

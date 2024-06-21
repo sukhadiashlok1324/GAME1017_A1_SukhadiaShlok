@@ -29,7 +29,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2298047854203906169}
   serializedVersion: 2
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -0.66, y: 3.2, z: 0}
   m_LocalScale: {x: 0.15679742, y: 0.1822969, z: 0}
   m_ConstrainProportionsScale: 0
@@ -100,7 +100,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dfb3a13ab69425b429e06202c4bb4fc2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  EnemyPrefab: {fileID: 2298047854203906169}
+  powerupPrefab: {fileID: 5473820427562117107, guid: 0831be8fbc07d044e93deb58f2376557, type: 3}
+  EnemyPrefab: {fileID: 2298047854203906169, guid: 21fa288013d53ea4f8c6b24e9fcfb493, type: 3}
   movementspeed: 2
   shootingInterval: 0.75
   bulletspeed: 3
