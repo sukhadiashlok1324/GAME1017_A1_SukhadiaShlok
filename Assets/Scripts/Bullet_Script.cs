@@ -1,19 +1,13 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
-
-
 public class Bullet_Script : MonoBehaviour
 {
     public float speed = 10f; // meters/seconds
     public float maxDistance = 20f; // meters
     float distance = 0; // meters
     public Vector2 direction;
-    
-
-    
-
+   
     // Update is called once per frame, maybe 60 times per second? Maybe 100? Maybe 400?
     void Update()
     {
@@ -26,7 +20,6 @@ public class Bullet_Script : MonoBehaviour
         //speed -> meters/seconds
         //Time.deltaTime -> seconds\
         //Translate(Vector2(metersX/seconds * seconds, metersY/seconds * seconds) 
-
         float distanceToTravel = speed * Time.deltaTime;
         Vector2 displacement = direction * distanceToTravel;
         distance = distance + distanceToTravel;
@@ -56,9 +49,6 @@ public class Bullet_Script : MonoBehaviour
         if (collision.CompareTag("Obstacle"))
         {
             Destroy(gameObject);
-        }
-         
+        }        
     }
-
-
 }

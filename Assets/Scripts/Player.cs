@@ -5,19 +5,13 @@ using UnityEngine;
 
 public class Player : MonoBehaviour
 {
-
     //public GameObject projectilePrefab;
     public TextMeshProUGUI Hitpoints;
     public float speed = 10.0f;
-    public float Health = 7.0f;
+    public float Health = 100.0f;
     public float rotationSpeed = 100f;
     public Transform Explosionposition;
     public GameObject ExplosionPrefab;
-
-    public void Start()
-    {
-
-    }
 
     public void ChangeHitPoints()
     {
@@ -67,17 +61,17 @@ public class Player : MonoBehaviour
     {
         if (collision.CompareTag("Projectile Enemy"))   //If the enemy bullets hits player, health decreases 
         {
-            Health -= 1.0f;
+            Health -= 10.0f;
         }
 
         if (collision.CompareTag("Obstacle"))    // If the player hits obstacle, Health Decreases by 2 
         {
-            Health -= 2.0f;
+            Health -= 20.0f;
         }
 
         if (collision.CompareTag("Enemy"))    // If the player hits enemy, Health decreases by 2
         {
-            Health -= 2.0f;
+            Health -= 20.0f;
         }
 
         if (Health <= 0.0f)       

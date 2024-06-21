@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Enemy_Score : MonoBehaviour
 {
-    public int scoreValue = 1; // Score value of this enemy
+    public int scoreValue = 10; // Score value of this enemy
 
     private ScoreManager scoreManager;
 
