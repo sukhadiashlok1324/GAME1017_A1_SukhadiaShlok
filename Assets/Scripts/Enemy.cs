@@ -77,9 +77,9 @@ public class Enemy : MonoBehaviour
 
     void Die()
     {
-        AfterDestroy();
         Instantiate(ExplosionPrefab, Explosionposition.position, Quaternion.identity);
         Destroy(gameObject);
+        AfterDestroy();
 
     }
 
