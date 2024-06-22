@@ -1,22 +1,17 @@
-using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
-using UnityEngine.UI;
 using TMPro;
+using UnityEngine;
 
 public class ScoreManager : MonoBehaviour
 {
     public TextMeshProUGUI scoreText;
-    public TextMeshProUGUI highScoreText; // Field for high score text
+    public TextMeshProUGUI highScoreText;
 
     private int score = 0;
     private int highScore = 0;
 
     private void Start()
     {
-        // Load the high score from PlayerPrefs
         highScore = PlayerPrefs.GetInt("HighScore", 0);
-        // Initialize score and high score texts
         UpdateScoreText();
         UpdateHighScoreText();
     }
@@ -30,7 +25,6 @@ public class ScoreManager : MonoBehaviour
 
     private void UpdateScoreText()
     {
-        // Update UI text to display current score
         if (scoreText != null)
         {
             scoreText.text = "Score: " + score.ToString();
@@ -39,7 +33,6 @@ public class ScoreManager : MonoBehaviour
 
     private void UpdateHighScoreText()
     {
-        // Update UI text to display high score
         if (highScoreText != null)
         {
             highScoreText.text = "High Score: " + highScore.ToString();
@@ -48,14 +41,17 @@ public class ScoreManager : MonoBehaviour
 
     private void CheckForHighScore()
     {
-        // Check if the current score is higher than the high score
         if (score > highScore)
         {
             highScore = score;
-            // Save the new high score to PlayerPrefs
             PlayerPrefs.SetInt("HighScore", highScore);
-            // Update the high score text
             UpdateHighScoreText();
         }
+    }
+
+    // Public method to get the current score
+    public int GetScore()
+    {
+        return score;
     }
 }

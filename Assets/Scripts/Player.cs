@@ -74,6 +74,11 @@ public class Player : MonoBehaviour
         {
             Health -= 20.0f;
         }
+        
+        if (collision.CompareTag("Health"))    // If the player hits enemy, Health decreases by 2
+        {
+            Health += 20.0f;
+        }
 
         if (Health <= 0.0f)       
         {

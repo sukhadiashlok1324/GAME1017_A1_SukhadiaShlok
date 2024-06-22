@@ -43,9 +43,10 @@ public class PowerUp : MonoBehaviour
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.CompareTag("Player"))
-        {
+        {           
             if (!isEnlarged)
             {
+                Debug.Log("Collision Detected");
                 isEnlarged = true;
                 transform.localScale *= enlargeScale;
                 Invoke(nameof(ReturnToOriginalSize), enlargeTime);

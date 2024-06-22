@@ -5,7 +5,7 @@ using UnityEngine.Events;
 
 public class Enemy : MonoBehaviour
 {
-    public GameObject powerupPrefab;
+    public GameObject HealthPrefab;
     public GameObject EnemyPrefab;
     public float movementspeed = 2f;
     public float shootingInterval = 1f;
@@ -21,13 +21,27 @@ public class Enemy : MonoBehaviour
     private float nextShootTime;
     private Rigidbody2D rb;
     private bool movingRight = true;
-    private float dropChance = 0.1f;
+
+    public ScoreManager scoreManager; // Reference to the ScoreManager
+    private int lastCheckedScore = 0;
 
     // Start is called before the first frame update
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
         nextShootTime = Time.time + shootingInterval;
+
+        if (scoreManager == null)
+        {
+            // Find the ScoreManager in the scene if it's not assigned in the inspector
+            scoreManager = FindObjectOfType<ScoreManager>();
+        }
+
+        if (scoreManager != null)
+        {
+            lastCheckedScore = scoreManager.GetScore();
+        }
+
     }
 
     // Update is called once per frame
@@ -47,6 +61,19 @@ public class Enemy : MonoBehaviour
         {
             Shoot();
             nextShootTime = Time.time + shootingInterval;
+        }
+
+        if (scoreManager != null)
+        {
+            int currentScore = scoreManager.GetScore();
+
+            // Check if the score is a multiple of 50 and has increased since last checked
+            if (currentScore > lastCheckedScore && currentScore % 50 == 0)
+            {
+                SpawnPrefabIfNoneExist();
+            }
+
+            lastCheckedScore = currentScore;
         }
     }
 
@@ -78,14 +105,40 @@ public class Enemy : MonoBehaviour
         }
     }
 
-    void Die()
+    private void SpawnPrefab()
+    {       
+        Instantiate(HealthPrefab, Explosionposition);
+    }
+
+    private void SpawnPrefabIfNoneExist()
     {
-        OnDestroy();
+        if (GameObject.FindWithTag("Health") == null)
+        {
+            if (HealthPrefab != null)
+            {
+                GameObject newObject = Instantiate(HealthPrefab, Explosionposition);
+                newObject.tag = "Health";
+                newObject.transform.parent = null;
+                //Debug.Log("Spawning Prefab");
+            }
+            else
+            {
+                //Debug.LogError("Prefab to spawn is not assigned!");
+            }
+        }
+        else
+        {
+            //Debug.Log("A GameObject with the tag 'Health' already exists.");
+        }
+    }
+
+        void Die()
+    {
         Shoot_ = false;
         gameObject.GetComponent<SpriteRenderer>().enabled = false;
         gameObject.GetComponent<CircleCollider2D>().enabled = false;
         Invoke("EnemyNew", DestroyDelay);
-        Invoke("AfterDie", 3f);
+        Invoke("AfterDie", 2f);
         Instantiate(ExplosionPrefab, Explosionposition.position, Quaternion.identity);
     }
 
@@ -103,28 +156,6 @@ public class Enemy : MonoBehaviour
         {
             collider2D.enabled = true; 
         }
-    }
-
-    private void OnDestroy()
-    {
-        if (Random.value > dropChance)
-        {
-            DropPowerup();
-        }
-    }
-
-    private void DropPowerup()
-    {
-        //Instantiate(powerupPrefab, transform.position, Quaternion.identity);
-        //SpriteRenderer renderer = powerupPrefab.GetComponent<SpriteRenderer>();
-        //if (renderer != null)
-        //{
-        //    renderer.enabled = true;
-        //}
-        //else
-        //{
-        //    Debug.LogWarning("SpriteRenderer not found on powerupPrefab.");
-        //}
     }
 
     void AfterDie()

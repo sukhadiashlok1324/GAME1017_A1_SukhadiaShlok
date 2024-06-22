@@ -100,7 +100,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dfb3a13ab69425b429e06202c4bb4fc2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  powerupPrefab: {fileID: 5473820427562117107, guid: 0831be8fbc07d044e93deb58f2376557, type: 3}
+  HealthPrefab: {fileID: 1655674386334548667, guid: a857ed73579341846b7c283cc4f1b984, type: 3}
   EnemyPrefab: {fileID: 2298047854203906169, guid: 21fa288013d53ea4f8c6b24e9fcfb493, type: 3}
   movementspeed: 2
   shootingInterval: 0.75
@@ -111,6 +111,7 @@ MonoBehaviour:
   Explosionposition: {fileID: 5915765544975770118}
   ExplosionPrefab: {fileID: 3394782322464053365, guid: 87e486292da884b4e9fb7cf591cbc6c5, type: 3}
   DestroyDelay: 2
+  scoreManager: {fileID: 0}
 --- !u!114 &2523079075747888906
 MonoBehaviour:
   m_ObjectHideFlags: 0
