@@ -22,7 +22,7 @@ public class Enemy : MonoBehaviour
     private Rigidbody2D rb;
     private bool movingRight = true;
 
-    public ScoreManager scoreManager; // Reference to the ScoreManager
+    public ScoreManager scoreManager; 
     private int lastCheckedScore = 0;
 
     // Start is called before the first frame update
@@ -33,7 +33,7 @@ public class Enemy : MonoBehaviour
 
         if (scoreManager == null)
         {
-            // Find the ScoreManager in the scene if it's not assigned in the inspector
+            
             scoreManager = FindObjectOfType<ScoreManager>();
         }
 
@@ -67,7 +67,6 @@ public class Enemy : MonoBehaviour
         {
             int currentScore = scoreManager.GetScore();
 
-            // Check if the score is a multiple of 50 and has increased since last checked
             if (currentScore > lastCheckedScore && currentScore % 50 == 0)
             {
                 SpawnPrefabIfNoneExist();
@@ -119,20 +118,13 @@ public class Enemy : MonoBehaviour
                 GameObject newObject = Instantiate(HealthPrefab, Explosionposition);
                 newObject.tag = "Health";
                 newObject.transform.parent = null;
-                //Debug.Log("Spawning Prefab");
             }
-            else
-            {
-                //Debug.LogError("Prefab to spawn is not assigned!");
-            }
+            
         }
-        else
-        {
-            //Debug.Log("A GameObject with the tag 'Health' already exists.");
-        }
+        
     }
 
-        void Die()
+    void Die()
     {
         Shoot_ = false;
         gameObject.GetComponent<SpriteRenderer>().enabled = false;
@@ -146,17 +138,34 @@ public class Enemy : MonoBehaviour
     {
         GameObject newEnemy = Instantiate(EnemyPrefab, Explosionposition.position, Quaternion.identity);
         newEnemy.transform.SetParent(null);
-        SpriteRenderer renderer = newEnemy.GetComponent<SpriteRenderer>(); 
+
+        Enemy enemyScript = newEnemy.GetComponent<Enemy>();
+        if (enemyScript != null)
+        {
+            enemyScript.gameObject.SetActive(true);
+            Debug.Log("Enemy script is attached.");
+        }
+        
+        Enemy_Score enemyScoreScript = newEnemy.GetComponent<Enemy_Score>();
+        if (enemyScoreScript != null)
+        {
+            enemyScoreScript.gameObject.SetActive(true);
+        }
+        
+
+        SpriteRenderer renderer = newEnemy.GetComponent<SpriteRenderer>();
         if (renderer != null)
         {
-            renderer.enabled = true; 
+            renderer.enabled = true;
         }
-        CircleCollider2D collider2D = newEnemy.GetComponent<CircleCollider2D>(); 
+
+        CircleCollider2D collider2D = newEnemy.GetComponent<CircleCollider2D>();
         if (collider2D != null)
         {
-            collider2D.enabled = true; 
+            collider2D.enabled = true;
         }
     }
+
 
     void AfterDie()
     {

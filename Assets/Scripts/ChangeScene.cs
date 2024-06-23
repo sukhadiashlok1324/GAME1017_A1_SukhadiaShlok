@@ -6,13 +6,10 @@ using UnityEngine.UI;
 using UnityEngine.UIElements;
 using Button = UnityEngine.UI.Button;
 
-
 public class ChangeScene : MonoBehaviour
 {
-
     void Start()
     {
-        
         if (panel != null)
         {
             panel.SetActive(false);
@@ -36,10 +33,19 @@ public class ChangeScene : MonoBehaviour
     // Method to toggle the panel's visibility
     public void TogglePanel()
     {
-        Time.timeScale = 0f;
         if (panel != null)
         {
-            panel.SetActive(!panel.activeSelf);
+            bool isActive = panel.activeSelf;
+            panel.SetActive(!isActive);
+
+            if (isActive)
+            {
+                Time.timeScale = 1f; // Resume time when the panel is hidden
+            }
+            else
+            {
+                Time.timeScale = 0f; // Pause time when the panel is shown
+            }
         }
     }
 }

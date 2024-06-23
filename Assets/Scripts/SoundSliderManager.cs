@@ -1,37 +1,60 @@
 using UnityEngine;
 using UnityEngine.UI;
+using System.Collections.Generic;
 
 public class SoundSliderManager : MonoBehaviour
 {
-    public Slider SFXSlider;
-    public Slider MusicSlider;
-    public Slider MasterSlider;
+    public Slider musicSlider;
+    public Slider soundSlider;
+    public Slider masterSlider;
 
-    private void Start()
+    private float musicVolume = 1f;
+    private float soundVolume = 1f;
+    private float masterVolume = 1f;
+
+    private List<AudioSource> musicSources = new List<AudioSource>();
+    private List<AudioSource> soundSources = new List<AudioSource>();
+
+    void Start()
     {
-        // Set initial values if needed
-        SFXSlider.value = SoundManager.GetSFXVolume();
-        MusicSlider.value = SoundManager.GetMusicVolume();
-        MasterSlider.value = 1f;
-
         // Add listeners to sliders
-        SFXSlider.onValueChanged.AddListener(SetSFXVolume);
-        MusicSlider.onValueChanged.AddListener(SetMusicVolume);
-        MasterSlider.onValueChanged.AddListener(SetMasterVolume);
+        musicSlider.onValueChanged.AddListener(SetMusicVolume);
+        soundSlider.onValueChanged.AddListener(SetSoundVolume);
+        masterSlider.onValueChanged.AddListener(SetMasterVolume);
+
+        // Initialize slider values
+        musicSlider.value = musicVolume;
+        soundSlider.value = soundVolume;
+        masterSlider.value = masterVolume;
+
+        // Initialize audio sources (example with one source)
+        AudioSource musicSource = gameObject.AddComponent<AudioSource>();
+        musicSources.Add(musicSource);
     }
 
-    public void SetSFXVolume(float volume)
+    void SetMusicVolume(float volume)
     {
-        SoundManager.SetSFXVolume(volume);
+        musicVolume = volume;
+        UpdateVolumes();
     }
 
-    public void SetMusicVolume(float volume)
+    void SetSoundVolume(float volume)
     {
-        SoundManager.SetMusicVolume(volume);
+        soundVolume = volume;
+        UpdateVolumes();
     }
 
-    public void SetMasterVolume(float volume)
+    void SetMasterVolume(float volume)
     {
-        SoundManager.SetMasterVolume(volume);
+        masterVolume = volume;
+        UpdateVolumes();
+    }
+
+    void UpdateVolumes()
+    {
+        foreach (var musicSource in musicSources)
+        {
+            musicSource.volume = musicVolume * masterVolume;
+        }
     }
 }

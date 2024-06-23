@@ -14,11 +14,18 @@ public class Player : MonoBehaviour
     public Transform Explosionposition;
     public GameObject ExplosionPrefab;
 
+    private Camera mainCamera;
+
+    void Start()
+    {
+        mainCamera = Camera.main;
+    }
+
     public void ChangeHitPoints()
     {
-        Hitpoints.text = "HitPoints: " + Health; 
+        Hitpoints.text = "HitPoints: " + Health;
     }
-   
+
     // Update is called once per frame
     void Update()
     {
@@ -56,6 +63,31 @@ public class Player : MonoBehaviour
         }
 
         transform.position += direction.normalized * speed * Time.deltaTime;
+
+        WrapAroundScreen();
+    }
+
+    private void WrapAroundScreen()
+    {
+        Vector3 newPosition = transform.position;
+        Vector3 viewportPosition = mainCamera.WorldToViewportPoint(transform.position);
+
+        if (viewportPosition.x > 1) // Right boundary
+        {
+            newPosition.x = mainCamera.ViewportToWorldPoint(new Vector3(0, viewportPosition.y, viewportPosition.z)).x;
+        }
+        else if (viewportPosition.x < 0) // Left boundary
+        {
+            newPosition.x = mainCamera.ViewportToWorldPoint(new Vector3(1, viewportPosition.y, viewportPosition.z)).x;
+        }
+
+        // Clamp the y position within the screen bounds
+        float minY = mainCamera.ViewportToWorldPoint(new Vector3(0, 0, viewportPosition.z)).y;
+        float maxY = mainCamera.ViewportToWorldPoint(new Vector3(0, 1, viewportPosition.z)).y;
+
+        newPosition.y = Mathf.Clamp(newPosition.y, minY, maxY);
+
+        transform.position = newPosition;
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
@@ -74,31 +106,25 @@ public class Player : MonoBehaviour
         {
             Health -= 20.0f;
         }
-        
-        if (collision.CompareTag("Health"))    // If the player hits enemy, Health decreases by 2
+
+        if (collision.CompareTag("Health"))
         {
             Health += 20.0f;
         }
 
-        if (Health <= 0.0f)       
+        if (Health <= 0.0f)
         {
             Health = 0.0f;
             Die();
         }
-
     }
-
-
-
 
     public void Die()
     {
         ChangeHitPoints();
 
-        // Disable components to make the object inactive and invisible
         gameObject.GetComponent<SpriteRenderer>().enabled = false;
         gameObject.GetComponent<PolygonCollider2D>().enabled = false;
-        // Add more lines to disable other components as needed
 
         Instantiate(ExplosionPrefab, Explosionposition.position, Quaternion.identity);
 
@@ -111,6 +137,4 @@ public class Player : MonoBehaviour
         SceneManager.LoadScene("After Die");
         Destroy(gameObject);
     }
-
-
 }

@@ -424,33 +424,9 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 2795097}
     m_Modifications:
-    - target: {fileID: -3661704273984480713, guid: 33ab2ad842fa639439a58ecff6c4130b, type: 3}
-      propertyPath: SFXSlider
-      value: 
-      objectReference: {fileID: 462346880}
-    - target: {fileID: 96099952234262590, guid: 33ab2ad842fa639439a58ecff6c4130b, type: 3}
-      propertyPath: m_AnchorMax.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1520409305985733949, guid: 33ab2ad842fa639439a58ecff6c4130b, type: 3}
-      propertyPath: m_AnchorMax.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4173039343209215950, guid: 33ab2ad842fa639439a58ecff6c4130b, type: 3}
-      propertyPath: m_AnchorMax.y
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 4642690569420148306, guid: 33ab2ad842fa639439a58ecff6c4130b, type: 3}
       propertyPath: m_Name
       value: Panel
-      objectReference: {fileID: 0}
-    - target: {fileID: 4877360556552530138, guid: 33ab2ad842fa639439a58ecff6c4130b, type: 3}
-      propertyPath: m_AnchorMax.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6119041239252781019, guid: 33ab2ad842fa639439a58ecff6c4130b, type: 3}
-      propertyPath: m_AnchorMax.y
-      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7650863196803561644, guid: 33ab2ad842fa639439a58ecff6c4130b, type: 3}
       propertyPath: m_Pivot.x
@@ -530,10 +506,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7650863196803561644, guid: 33ab2ad842fa639439a58ecff6c4130b, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8759510350370490519, guid: 33ab2ad842fa639439a58ecff6c4130b, type: 3}
-      propertyPath: m_AnchorMax.y
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
@@ -621,17 +593,6 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e0e0011354b750a4da41d012d6f5c7f7, type: 3}
---- !u!114 &462346880 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 2163364463446563153, guid: 33ab2ad842fa639439a58ecff6c4130b, type: 3}
-  m_PrefabInstance: {fileID: 307245404}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 67db9e8f0e2ae9c40bc1e2b64352a6b4, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &516057227 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 2755484816271755489, guid: c5777d19b72fe1d448a0886be9b63949, type: 3}
