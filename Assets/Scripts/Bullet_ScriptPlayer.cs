@@ -7,7 +7,7 @@ public class Bullet_ScriptPlayer : MonoBehaviour
     
     public float speed_ = 10f;
     public float maxDistance = 20f;
-    //public int Attackpoints;
+    
 
     
     void Update()

@@ -17,10 +17,16 @@ public class ChangeScene : MonoBehaviour
     }
 
     public string SceneName;
+    public string SceneName1;
 
     public void ChangeScene1()
     {
         SceneManager.LoadScene(SceneName);
+    }
+    
+    public void ChangeScene2()
+    {
+        SceneManager.LoadScene(SceneName1);
     }
 
     public void Quit()
@@ -28,9 +34,7 @@ public class ChangeScene : MonoBehaviour
         Application.Quit();
     }
 
-    public GameObject panel;  // Reference to the Panel GameObject
-
-    // Method to toggle the panel's visibility
+    public GameObject panel;  
     public void TogglePanel()
     {
         if (panel != null)

@@ -72,16 +72,16 @@ public class Player : MonoBehaviour
         Vector3 newPosition = transform.position;
         Vector3 viewportPosition = mainCamera.WorldToViewportPoint(transform.position);
 
-        if (viewportPosition.x > 1) // Right boundary
+        if (viewportPosition.x > 1)
         {
             newPosition.x = mainCamera.ViewportToWorldPoint(new Vector3(0, viewportPosition.y, viewportPosition.z)).x;
         }
-        else if (viewportPosition.x < 0) // Left boundary
+        else if (viewportPosition.x < 0)
         {
             newPosition.x = mainCamera.ViewportToWorldPoint(new Vector3(1, viewportPosition.y, viewportPosition.z)).x;
         }
 
-        // Clamp the y position within the screen bounds
+        
         float minY = mainCamera.ViewportToWorldPoint(new Vector3(0, 0, viewportPosition.z)).y;
         float maxY = mainCamera.ViewportToWorldPoint(new Vector3(0, 1, viewportPosition.z)).y;
 
@@ -92,17 +92,17 @@ public class Player : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.CompareTag("Projectile Enemy"))   //If the enemy bullets hits player, health decreases 
+        if (collision.CompareTag("Projectile Enemy"))   
         {
             Health -= 10.0f;
         }
 
-        if (collision.CompareTag("Obstacle"))    // If the player hits obstacle, Health Decreases by 2 
+        if (collision.CompareTag("Obstacle")) 
         {
             Health -= 20.0f;
         }
 
-        if (collision.CompareTag("Enemy"))    // If the player hits enemy, Health decreases by 2
+        if (collision.CompareTag("Enemy"))    
         {
             Health -= 20.0f;
         }
@@ -128,7 +128,7 @@ public class Player : MonoBehaviour
 
         Instantiate(ExplosionPrefab, Explosionposition.position, Quaternion.identity);
 
-        // Delay the scene change
+        
         Invoke("LoadSceneAfterDelay", 1f);
     }
 

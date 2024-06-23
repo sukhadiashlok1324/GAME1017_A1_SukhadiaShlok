@@ -4,26 +4,26 @@ using UnityEngine;
 
 public class Enemy_Score : MonoBehaviour
 {
-    public int scoreValue = 10; // Score value of this enemy
+    public int scoreValue = 10; 
     private ScoreManager scoreManager;
     private SpriteRenderer spriteRenderer;
     private bool scoreUpdated = false;
 
     private void Start()
     {
-        scoreManager = FindObjectOfType<ScoreManager>(); // Find ScoreManager in the scene
-        spriteRenderer = GetComponent<SpriteRenderer>(); // Get the SpriteRenderer component
+        scoreManager = FindObjectOfType<ScoreManager>(); 
+        spriteRenderer = GetComponent<SpriteRenderer>(); 
     }
 
     private void Update()
     {
-        // Check if the SpriteRenderer is inactive and the score has not been updated yet
+        
         if (spriteRenderer != null && !spriteRenderer.enabled && !scoreUpdated)
         {
             if (scoreManager != null)
             {
-                scoreManager.IncrementScore(scoreValue); // Increment score
-                scoreUpdated = true; // Prevent multiple increments
+                scoreManager.IncrementScore(scoreValue); 
+                scoreUpdated = true; 
             }
         }
     }
@@ -39,9 +39,9 @@ public class Projectile : MonoBehaviour
             SpriteRenderer enemySpriteRenderer = other.GetComponent<SpriteRenderer>();
             if (enemySpriteRenderer != null)
             {
-                enemySpriteRenderer.enabled = false; // Deactivate the enemy's SpriteRenderer
+                enemySpriteRenderer.enabled = false; 
             }
-            Destroy(gameObject); // Destroy the projectile
+            Destroy(gameObject); 
         }
     }
 }

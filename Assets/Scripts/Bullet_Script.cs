@@ -8,7 +8,7 @@ public class Bullet_Script : MonoBehaviour
     float distance = 0; // meters
     public Vector2 direction;
    
-    // Update is called once per frame, maybe 60 times per second? Maybe 100? Maybe 400?
+    
     void Update()
     {
         MoveBullet();

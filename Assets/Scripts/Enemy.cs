@@ -25,7 +25,6 @@ public class Enemy : MonoBehaviour
     public ScoreManager scoreManager; 
     private int lastCheckedScore = 0;
 
-    // Start is called before the first frame update
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
@@ -43,8 +42,6 @@ public class Enemy : MonoBehaviour
         }
 
     }
-
-    // Update is called once per frame
     void Update()
     {
         if (movingRight)
@@ -118,10 +115,8 @@ public class Enemy : MonoBehaviour
                 GameObject newObject = Instantiate(HealthPrefab, Explosionposition);
                 newObject.tag = "Health";
                 newObject.transform.parent = null;
-            }
-            
-        }
-        
+            }            
+        }       
     }
 
     void Die()
@@ -143,7 +138,6 @@ public class Enemy : MonoBehaviour
         if (enemyScript != null)
         {
             enemyScript.gameObject.SetActive(true);
-            Debug.Log("Enemy script is attached.");
         }
         
         Enemy_Score enemyScoreScript = newEnemy.GetComponent<Enemy_Score>();

@@ -17,17 +17,17 @@ public class SoundSliderManager : MonoBehaviour
 
     void Start()
     {
-        // Add listeners to sliders
+        
         musicSlider.onValueChanged.AddListener(SetMusicVolume);
         soundSlider.onValueChanged.AddListener(SetSoundVolume);
         masterSlider.onValueChanged.AddListener(SetMasterVolume);
 
-        // Initialize slider values
+       
         musicSlider.value = musicVolume;
         soundSlider.value = soundVolume;
         masterSlider.value = masterVolume;
 
-        // Initialize audio sources (example with one source)
+        
         AudioSource musicSource = gameObject.AddComponent<AudioSource>();
         musicSources.Add(musicSource);
     }
