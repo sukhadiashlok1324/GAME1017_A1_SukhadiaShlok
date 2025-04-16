@@ -321,7 +321,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 'Instruction
+  m_text: 'Instructions
 
 '
   m_isRightToLeft: 0
@@ -1227,7 +1227,7 @@ GameObject:
   - component: {fileID: 1674717351}
   - component: {fileID: 1674717350}
   m_Layer: 5
-  m_Name: Button-Start (1)
+  m_Name: Button-Instructions
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
